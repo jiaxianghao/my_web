@@ -9,7 +9,7 @@
   <body>
     <main class="converter-card">
       <h1>进制转换工具</h1>
-      <p class="description">支持 2~36 进制之间的整数转换。</p>
+      <p class="description">默认提供 2、10、16 进制转换。</p>
 
       <form id="converter-form" novalidate>
         <label for="source-value">输入数值</label>
@@ -22,14 +22,25 @@
           required
         />
 
-        <div class="base-row">
+        <div class="base-selector-group">
           <div>
-            <label for="from-base">原始进制</label>
-            <input id="from-base" name="fromBase" type="number" min="2" max="36" value="10" required />
+            <p class="group-title">原始进制</p>
+            <div class="base-options" role="radiogroup" aria-label="原始进制">
+              <button type="button" class="base-option is-active" data-target="from-base" data-base="10">10 进制</button>
+              <button type="button" class="base-option" data-target="from-base" data-base="2">2 进制</button>
+              <button type="button" class="base-option" data-target="from-base" data-base="16">16 进制</button>
+            </div>
+            <input id="from-base" name="fromBase" type="hidden" value="10" />
           </div>
+
           <div>
-            <label for="to-base">目标进制</label>
-            <input id="to-base" name="toBase" type="number" min="2" max="36" value="2" required />
+            <p class="group-title">目标进制</p>
+            <div class="base-options" role="radiogroup" aria-label="目标进制">
+              <button type="button" class="base-option is-active" data-target="to-base" data-base="2">2 进制</button>
+              <button type="button" class="base-option" data-target="to-base" data-base="10">10 进制</button>
+              <button type="button" class="base-option" data-target="to-base" data-base="16">16 进制</button>
+            </div>
+            <input id="to-base" name="toBase" type="hidden" value="2" />
           </div>
         </div>
 

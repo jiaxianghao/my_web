@@ -12,6 +12,19 @@ const fromBaseInput = document.querySelector("#from-base");
 const toBaseInput = document.querySelector("#to-base");
 const resultValue = document.querySelector("#result-value");
 const resultError = document.querySelector("#result-error");
+const baseOptions = document.querySelectorAll(".base-option");
+
+baseOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    const targetInput = document.querySelector(`#${option.dataset.target}`);
+    targetInput.value = option.dataset.base;
+
+    document
+      .querySelectorAll(`.base-option[data-target=\"${option.dataset.target}\"]`)
+      .forEach((btn) => btn.classList.remove("is-active"));
+    option.classList.add("is-active");
+  });
+});
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
