@@ -8,8 +8,11 @@
   </head>
   <body>
     <main class="converter-card">
-      <h1>进制转换工具</h1>
-      <p class="description">默认提供 2、10、16 进制转换。</p>
+      <div class="title-row">
+        <h1>进制转换工具</h1>
+        <span class="badge">2-36 进制</span>
+      </div>
+      <p class="description">默认提供 2、10、16 进制转换，可快速切换与复制结果。</p>
 
       <form id="converter-form" novalidate>
         <label for="source-value">输入数值</label>
@@ -21,6 +24,12 @@
           autocomplete="off"
           required
         />
+
+        <div class="quick-examples" aria-label="快捷示例">
+          <button type="button" class="example-chip" data-value="101010">101010</button>
+          <button type="button" class="example-chip" data-value="255">255</button>
+          <button type="button" class="example-chip" data-value="ff">ff</button>
+        </div>
 
         <div class="base-selector-group">
           <div>
@@ -44,11 +53,15 @@
           </div>
         </div>
 
+        <button id="swap-bases" type="button" class="ghost-button">↔ 交换进制</button>
         <button type="submit">开始转换</button>
       </form>
 
       <section class="result">
-        <h2>转换结果</h2>
+        <div class="result-header">
+          <h2>转换结果</h2>
+          <button id="copy-result" type="button" class="copy-button">复制</button>
+        </div>
         <output id="result-value">-</output>
         <p id="result-error" class="error" aria-live="polite"></p>
       </section>
